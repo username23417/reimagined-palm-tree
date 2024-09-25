@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack Help</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            width: 70px;
+            height: 100px;
+            border: 1px solid black;
+            border-radius: 5px;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card .rank {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .card .suit {
+            font-size: 18px;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        .game-info {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Blackjack</h1>
+        <div class="game-info">
+            <p>Player's Hand: </p>
+            <div class="card-container" id="player-hand"></div>
+            <p>Dealer's Hand: </p>
+            <div class="card-container" id="dealer-hand"></div>
+        </div>
+        <div class="buttons">
+            <button id="hit-button">Hit</button>
+            <button id="stand-button">Stand</button>
+        </div>
+    </div>
+    <script>
+        const playerHand = document.getElementById('player-hand');
+        const dealerHand = document.getElementById('dealer-hand');
+        const hitButton = document.getElementById('hit-button');
+        const standButton = document.getElementById('stand-button');
+
+        // Example card data (replace with your actual game logic)
+        const playerCards = [
+            { rank: 'A', suit: '♠' },
+            { rank: 'K', suit: '♥' },
+        ];
+        const dealerCards = [
+            { rank: 'J', suit: '♦' },
+            { rank: '7', suit: '♣' },
+        ];
+
+        // Function to create a card element
+        function createCard(rank, suit) {
+            const card = document.createElement('div');
+            card.classList.add('card');
+            card.innerHTML = `
+                <div class="rank">${rank}</div>
+                <div class="suit">${suit}</div>
+            `;
+            return card;
+        }
+
+        // Display initial hands
+        playerCards.forEach(card => {
+            playerHand.appendChild(createCard(card.rank, card.suit));
+        });
+        dealerCards.forEach(card => {
+            dealerHand.appendChild(createCard(card.rank, card.suit));
+        });
+
+        // Example event listeners (replace with your game logic)
+        hitButton.addEventListener('click', () => {
+            // Add a card to the player's hand
+            // ...
+        });
+
+        standButton.addEventListener('click', () => {
+            // End the player's turn
+            // ...
+        });
+    </script>
+</body>
+</html>
